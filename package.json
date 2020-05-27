@@ -1,0 +1,25 @@
+{
+  "name": "static-site",
+  "version": "1.0.0",
+  "description": "![alt text](./badgecap.PNG \"Logo Title Text 1\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.0.0",
+    "inquirer": "^6.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stackandslash/basic-README-gen.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Stackandslash/basic-README-gen/issues"
+  },
+  "homepage": "https://github.com/Stackandslash/basic-README-gen#readme"
+}
