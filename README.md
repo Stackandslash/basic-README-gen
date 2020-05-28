@@ -1,7 +1,7 @@
-# weather-dash
+# Basic README Gen
 
-## Description
-This is the description of the weather dash!
+#### Description
+A basic generator for READMEs using the terminal.
 
 ## Table of Contents
 #### [Details](#details)
