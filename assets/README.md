@@ -5,12 +5,12 @@
 This is the description of the weather dash!
 
 ## Table of Contents
-### Installation
-### Usage
-### License
-### Contributing
-### Tests
-### Questions
+#### [Installation](#installation)
+#### [Usage](#usage)
+#### [License](#license)
+#### [Contributing](#contributing)
+#### [Tests](#tests)
+#### [Questions](#quesitons)
 
 ## Installation
 You should download this, then put it on a floppy disk, then carefully measure the sides of the floppy disk, before discarding it and opening the HTML file in your browser.
