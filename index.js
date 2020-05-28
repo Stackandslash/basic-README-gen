@@ -1,8 +1,6 @@
 const axios = require("axios");
 const inquirer = require("inquirer");
 const fs = require("fs");
-let email = "";
-let imageURL = ""
 const questions = [
     {
         name: "githubname",
@@ -10,7 +8,7 @@ const questions = [
     },
     {
         name: "title",
-        message: "Enter the title of your project"
+        message: "Enter the repo name"
     },
     {
         name: "description",
@@ -38,7 +36,7 @@ const questions = [
     },
 ];
 
-//You call questionAsk
+//You're an init function. You call questionAsk.
 function init() {
     questionAsk();
 }
@@ -56,26 +54,22 @@ function writeToFile(fileName, data) {
       });
 }
 
-//The function to get the API info from GitHub.
-function getGithubInfo(username){
-    let queryURL = `https://api.github.com/users/${username}?per_page=100`
-    axios.get(queryURL).then(function(response) {
-        email = response.email //This will be null for me.
-        imageURL = response.avatar_url
-      });
-}
-
 //The main function, which prompts questions and sets up the README text.
 function questionAsk(){
+
     inquirer.prompt(questions).then((answers) => {
         const {githubname, title, description, install, usage, license, contributing, tests} = answers;
-        getGithubInfo(githubname);
-        let markdown = `
+        let queryURL = `https://api.github.com/users/${githubname}?per_page=100`
+        axios.get(queryURL).then(function(response){
+            let imageURL = response.data.avatar_url;
+            let email = response.data.email;
+
+let markdown = `
 # ${title}
-        
+
 ## Description
 ${description}
-        
+
 ## Table of Contents
 ### Installation
 ### Usage
@@ -83,28 +77,30 @@ ${description}
 ### Contributing
 ### Tests
 ### Questions
-        
+
 ## Installation
 ${install}
-        
+
 ## Usage
 ${usage}
-        
+
 ## License
 ${license}
-        
+
 ## Contributing
 ${contributing}
-        
+
 ## Tests
 ${tests}
-        
+
 ### Questions
-        
+#### Email me at ${email}
+
 ![Avatar Image](${imageURL})
-${email}
-![Badge?](./badgecap.PNG)
-        `;
-        writeToFile("./assets/README.md", markdown);
-    });
-}
+
+![GitHub repo size](https://img.shields.io/github/repo-size/${githubname}/${title})
+`;
+            writeToFile("./assets/README.md", markdown);
+        });
+    })
+    }
