@@ -14,9 +14,9 @@ Most of the input the generator takes is placed in the corresponding places in t
 There's not currently any functionality that keeps the user from entering an entirely inaccurate name or repo. However, this will only serve to nullify the contact information auto-fill and badge details.
 
 ### Images
-![image one](/result1.PNG)
-![image two](/result2.PNG)
-![image three](/result3.PNG)
+![image one](result1.PNG)
+![image two](result2.PNG)
+![image three](result3.PNG)
 
 
 ### Tests
